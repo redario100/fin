@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+<title>Application client</title>
+<style type="text/css">
+body
+{
+margin:0;
+text-align: center;
+   background-color: #fff;
+   color: #000000;
+   font-family: Calibri, sans-serif;
+}
+@font-face {
+  font-family: Calibri;
+  src: local("Calibri"), url("calibri.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+<style type="text/css">
+#container
+{
+position:relative;
+margin-top: 0px;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: left;
+   width:1024px;
+}
+a
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+a:visited
+{
+   color: #800080;
+}
+a:active
+{
+   color: #FF0000;
+}
+a:hover
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+</style>
+<style type="text/css">
+#wb_CssMenu1
+{
+   border: 0px #FFFFFF solid;
+   background-color: transparent;
+}
+#wb_CssMenu1 ul
+{
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   width: 217px;
+}
+#wb_CssMenu1 li
+{
+   float: left;
+   margin: 0;
+   padding: 0px 0px 0px 0px;
+   width: 217px;
+}
+#wb_CssMenu1 a
+{
+   display: block;
+   color: #FFFFF0;
+   border-bottom: 1px #2D170A groove;
+ background:-webkit-gradient(linear, center top, center bottom, from(#170601), to(#000));
+	-moz-box-shadow:inset 17px -15px 50px -20px #120A07;
+	-webkit-box-shadow:inset 17px -27px 50px -20px #120A07;
+	box-shadow:inset 17px -27px 50px -20px #120A07;
+   font-family: "calibri";
+   font-size: 16px;
+   font-weight: bold;
+   font-style: normal;
+   text-decoration: none;
+   width: 203px;
+   padding: 8px;
+   vertical-align: middle;
+   line-height: 43px;
+   text-align: left;
+}
+#wb_CssMenu1 li:hover a, #wb_CssMenu1 a:hover
+{
+   color: #FFF5EE;
+ background:-webkit-gradient(linear, center top, center bottom, from(#480E00), to(#000));
+	-moz-box-shadow:inset 17px -15px 50px -25px #480E00;
+	-webkit-box-shadow:inset 17px -27px 50px -25px #480E00;
+	box-shadow:inset 17px -27px 50px -25px #480E00;
+   border-bottom: 1px #871B00 groove;
+   border-top: 1px #871B00 groove;
+}
+#wb_CssMenu1 .firstmain a
+{
+   margin-top: 0px;
+}
+#wb_CssMenu1 li.lastmain
+{
+   padding-bottom: 0px;
+}
+#wb_CssMenu1 br
+{
+   clear: both;
+   font-size: 1px;
+   height: 0;
+   line-height: 0px;
+}
+#wb_Carousel1
+{
+   background-color: black;
+}
+#Carousel1 .frame
+{
+   width: 809px;
+   display: inline-block;
+   float: left;
+   height: 730px;
+}
+#wb_Carousel1 .pagination
+{
+   bottom: 0;
+   left: 0;
+   position: absolute;
+   text-align: center;
+   vertical-align: middle;
+   width: 809px;
+   z-index: 130;
+}
+#wb_Carousel1 .pagination img
+{
+margin-right:3px;
+   border-style: none;
+   padding: 12px 12px 12px 12px;
+}
+#Button1
+{
+   border: 1px gray groove;
+   -moz-border-radius: 4px;
+   -webkit-border-radius: 4px;
+   border-radius: 4px;
+   background:-webkit-gradient(linear, center top, center bottom, from(#3C3434), to(#000));
+   color: white;
+   font-family: 'calibri';
+   font-weight: bold;
+   font-size: 13px;
+   text-shadow:1px 1px 0 gray;
+}
+#Button2, #Button3
+{
+   -moz-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 4px;
+   border:1px groove gray;
+   background:-webkit-gradient(linear, center top, center bottom, from(#3C3434), to(#000));
+   color: white;
+   font-family: 'calibri';
+   font-weight: bold;
+   font-size: 13px;
+   text-shadow:1px 1px 0 gray;
+  
+}
+#wb_Shape1
+{
+background:-webkit-gradient(linear, center top, center bottom, from(#0D0D0C), to(#000));
+}
+#Image1
+{
+   border: 2px #FF4500 outset;
+}
+.wb_Text11
+{
+   background-color: transparent;
+   border: 0px #000000 solid;
+   padding: 0;
+   text-align: left;
+}
+</style>
+<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./js/wb.carousel.min.js"></script>
+
+<script type="text/javascript" src="./js/jquery.effects.core.min.js"></script>
+<script type="text/javascript" src="./js/jquery.effects.slide.min.js"></script>
+<script type="text/javascript" src="./js/wwb8.js"></script>
+<script type="text/javascript">
+function def()
+{
+   var Carousel1Opts =
+   {
+      delay: 2000,
+      duration: 400,
+      easing: 'linear',
+      mode: 'forward',
+      direction: '',
+      pagination: false,
+      start: 0,
+      width: 809
+   };
+   $("#Carousel1").carousel(Carousel1Opts);
+}
+function affichemenu() 
+{
+$.ajax({
+	type: "POST",
+    url: "http://192.168.1.120/resto/menu.php",
+  data: "j=ok",  
+  cache: false,
+  success: function(html2){
+   $("#aff_menu").append(html2);
+  }
+});
+}
+function ajoutcmd(msg) 
+{
+$("#bgv").fadeIn('100');
+  $("#valida").fadeIn('100');
+$.ajax({
+	type: "POST",
+    url: "http://192.168.1.120/resto/ajout.php",
+  data: "q="+msg,  
+  cache: false,
+  success: function(html2){
+  
+  setTimeout(function (){$("#bgv").hide();
+  $("#valida").hide();},1000);
+  }
+});
+}
+function cacher(msg)
+{
+$("#aff_contenue").fadeIn('100');
+$("#aff_contenue2").hide();
+$("#aff_contenue3").hide('50');
+}
+function macommande()
+{
+$.ajax({
+	type: "POST",
+    url: "http://192.168.1.120/resto/commande.php",
+  data: "q=1",  
+  cache: false,
+  success: function(html2){
+  $("#aff_contenue2").hide();
+  $("#aff_contenue").show();
+document.getElementById('aff_contenue3').innerHTML=html2;
+//ShowObjectWithEffect('aff_contenue3', '1', 'slideleft', '1200');
+$("#aff_contenue3").slideDown('slow');
+  }
+});
+}
+function slide()
+{
+$("#aff_contenue0").show();
+$("#aff_contenue2").hide();
+$("#aff_contenue3").hide();
+$.ajax({
+	type: "POST",
+    url: "http://192.168.1.120/resto/slide.php",
+  data: "q=ok",  
+  cache: false,
+  success: function(html2){
+  $("#aff_contenue").hide();
+document.getElementById('aff_contenue').innerHTML=html2;
+$("#aff_contenue").fadeIn('slow');
+  }
+});
+}
+function affichephoto(msg)
+{
+$("#aff_contenue").hide();
+$("#aff_contenue2").hide();
+$.ajax({
+	type: "POST",
+    url: "http://192.168.1.120/resto/afficheimage.php",
+  data: "q="+msg,  
+  cache: false,
+  success: function(html2){
+document.getElementById('aff_contenue2').innerHTML=html2;
+ShowObjectWithEffect('aff_contenue2', '1', 'slideleft', '500');
+  }
+});
+}
+function afficheinfos(msg) 
+{
+$("#aff_contenue0").hide();
+$("#aff_contenue3").hide();
+$("#aff_contenue2").hide();
+document.getElementById('aff_contenue').innerHTML="";
+document.getElementById('aff_contenue').innerHTML="<img style='position:fixed;left:550px;top:250px;' src='images/loader.gif'/>";
+//$('#charg2').show();
+	$.ajax({
+	type: "POST",
+    url: "http://192.168.1.120/resto/affiche.php",
+  data: "q="+msg,  
+  cache: false,
+  success: function(html2){
+  setTimeout(function (){$('#charg2').hide();$("#aff_contenue").hide();
+document.getElementById('aff_contenue').innerHTML=html2;
+ShowObjectWithEffect('aff_contenue', '1', 'slideleft', '1200');
+   /*$("#aff_contenue").fadeIn();*/}, 500);
+  
+   
+  }
+});
+}
+function calcul()
+{
+var a=document.getElementById('calci').innerHTML;
+var b=parseInt(a)+1;
+document.getElementById('calci').innerHTML=b;
+}
+function calculm()
+{
+var a=document.getElementById('calci').innerHTML;
+var b=parseInt(a)-1;
+document.getElementById('calci').innerHTML=b;
+}
+
+function supprim(msg)
+{
+	$.ajax({
+	type: "POST",
+    url: "http://192.168.1.120/resto/supprimer.php",
+  data: "q="+msg,  
+  cache: false,
+  success: function(html2){
+$('#'+msg+'red').hide('500');
+  setTimeout(function (){
+  $.ajax({
+	type: "POST",
+    url: "http://192.168.1.120/resto/commande.php",
+  data: "q=1",  
+  cache: false,
+  success: function(html2){
+document.getElementById('aff_contenue3').innerHTML=html2;
+$("#aff_contenue3").hide();
+$("#aff_contenue3").show();
+  }
+});
+  
+  
+  
+  
+  
+  
+},200);
+}
+});
+}
+
+</script>
+
+
+</head>
+<body onload="affichemenu();slide();def()">
+<div id="container">
+<div id="bgv" style="display:none;position:fixed;background-color:black;left:0;top:0;width:100%;height:100%;opacity:0.7;z-index:105"></div>
+<div id="valida" style="display:none;position:fixed;background-color:black;left:450px;top:270px;padding:15px;z-index:106;border-radius:15px;box-shadow:0 0 0.8em black;"><img src="images/valid.png"><i>&nbsp;<span style="font-size:18px;color:white;font-family:calibri;font-weight:bold;position:relative;top:-15px;">Ajouté au panier</span></i></div>
+<div id="wb_Shape1" style="position:fixed;left:0px;top:0px;width:220px;height:100%;z-index:0;">
+</div>
+<div id="wb_Shape2" style="position:fixed;left:1px;top:0px;width:219px;height:46px;z-index:1;">
+<img src="images-site/img0002.png" id="Shape2" alt="" style="border-width:0;width:219px;height:46px;"></div>
+<div id="wb_CssMenu1" style="position:fixed;overflow:auto;left:1px;top:47px;width:219px;height:768px;z-index:0;">
+<ul>
+<div id="aff_menu">
+</div>
+</ul>
+<br>
+</div>
+<div id="calci" style="background-color:#D1180B;opacity:0.9;box-shadow:0 0 0.5em black;border-radius:4px;border:1px groove #210401;text-shadow:1px 1px 0 black;padding:0px 3px;position:fixed;top:2px;left:415px;z-index:105;font-size:14px;color:white;font-family:calibri;font-weight:bold">0</div>
+<img src="images/pan.png" style="position:fixed;top:3px;left:382px;z-index:104">
+<div id="wb_Shape3" style="position:fixed;left:219px;top:0px;width:809px;height:47px;z-index:99;">
+<img src="images-site/img0003.png" id="Shape3" alt="" style="border-left:1px solid black;border-width:1;width:804px;height:47px;"></div>
+<input type="submit" onclick="macommande()" id="Button1" name="" value="Valider ma commande" style="background-color:white;position:fixed;left:229px;top:5px;padding:8px;z-index:100;">
+<input type="submit" value="Retour" onclick="cacher()" id="Button2" name="" style="position:fixed;left:955px;text-align:center;top:5px;padding:8px;z-index:101;">
+<button onclick="slide()" id="Button3" name="" style="position:fixed;left:870px;text-align:center;top:5px;padding:8px;z-index:101;"><img src="images/acceuil.png">&nbsp;Accueil</button>
+<div onclick="def();$('#aff_contenue0').hide()" id="aff_contenue0" style="background-color:black;opacity:0.6;position:fixed;top:1px;left:220px;width:809px;height:750px;z-index:135;">
+<img style="margin-top:350px;margin-left:370px;" src="images/play.png">
+</div>
+<div id="aff_contenue" style="position:relative;top:40px;left:220px;width:790px;height:768px;z-index:6;">
+<div id="charg2" style="display:none"></div>
+</div>
+<div id="aff_contenue2" onclick="$('#aff_contenue').fadeIn();$('#aff_contenue2').hide();" style="background-color:black;position:fixed;display:none;top:47px;height:768px;left:220px;width:788px;z-index:7;">
+<div id="charg3" style="display:none"></div>
+</div>
+<div id="aff_contenue3" style="padding:20px;position:absolute;display:none;background:-webkit-gradient(linear, center top, center bottom, from(#050403), to(#000));top:50px;border-radius:5px;box-shadow:0 0 0.5em black;max-height:900px;overflow-x:auto;left:252px;width:690px;z-index:77;">
+</div>
+</div>
+
+</body>
+</html>
